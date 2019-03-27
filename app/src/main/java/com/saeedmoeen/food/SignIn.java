@@ -1,13 +1,13 @@
 package com.saeedmoeen.food;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rengwuxian.materialedittext.MaterialEditText;
+import com.saeedmoeen.food.Common.Common;
 import com.saeedmoeen.food.Model.User;
 
 public class SignIn extends AppCompatActivity {
@@ -51,7 +51,12 @@ public class SignIn extends AppCompatActivity {
                             mDialog.dismiss();
                             User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                Toast.makeText(SignIn.this, "Sign in Successfully !", Toast.LENGTH_SHORT).show();
+                                {
+                                    Intent homeIntent = new Intent(SignIn.this, Home.class);
+                                    Common.currentUser = user;
+                                    startActivity(homeIntent);
+                                    finish();
+                                }
                             } else {
                                 Toast.makeText(SignIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
                             }
