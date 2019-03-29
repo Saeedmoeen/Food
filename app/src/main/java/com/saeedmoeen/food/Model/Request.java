@@ -3,6 +3,7 @@ package com.saeedmoeen.food.Model;
 import java.util.List;
 
 public class Request {
+    private String status;
     private String phone;
     private String name;
     private String address;
@@ -18,6 +19,15 @@ public class Request {
         this.address = address;
         this.total = total;
         this.food = food;
+        this.status = "0";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getPhone() {
