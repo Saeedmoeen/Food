@@ -41,7 +41,7 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View v) {
 
                 final ProgressDialog mDialog = new ProgressDialog(SignIn.this);
-                mDialog.setMessage("Please Wating...");
+                mDialog.setMessage("لطفا صبر کنید...");
                 mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -59,10 +59,10 @@ public class SignIn extends AppCompatActivity {
                                     finish();
                                 }
                             } else {
-                                Toast.makeText(SignIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "رمز عبور اشتباه است", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(SignIn.this, "User not exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "نام کاربری اشتباه است", Toast.LENGTH_SHORT).show();
                         }
                     }
 

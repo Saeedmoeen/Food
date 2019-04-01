@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final ProgressDialog mDialog = new ProgressDialog(SignUp.this);
-                mDialog.setMessage("Please Wating...");
+                mDialog.setMessage("لطفا صبر کنید...");
                 mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -47,13 +47,13 @@ public class SignUp extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.child(etPhone.getText().toString()).exists()) {
                             mDialog.dismiss();
-                            Toast.makeText(SignUp.this, "Phone number already register.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "شماره تلفن تکراری میباشد", Toast.LENGTH_SHORT).show();
                         } else  {
                             mDialog.dismiss();
                             User user = new User(etName.getText().toString(), etPassword.getText().toString());
                             table_user.child(etPhone.getText().toString()).setValue(user);
 
-                            Toast.makeText(SignUp.this, "Sign up successfully !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "ثبت نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }

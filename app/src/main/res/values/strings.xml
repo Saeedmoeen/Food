@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food</string>
+    <string name="app_name">سفارش غذا</string>
     <string name="SignUp">ثبت نام</string>
     <string name="SignIn">ورود</string>
     <string name="title_activity_home">Home</string>
